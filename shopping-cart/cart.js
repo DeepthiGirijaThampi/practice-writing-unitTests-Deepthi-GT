@@ -4,14 +4,18 @@ function addItem(cart,item,quantity){
 }
 
 function removeItem(cart,item){
-  const index = cart.indexOf(item);
+  const index = cart.findIndex((entry) => entry.item === item);
   if(index !== -1){
     cart.splice(index,1);
   }
 }
 
 function getTotalItems(cart){
-  return cart.length;
+  let total = 0;
+  for(let i = 0;i<cart.length;i++){
+    total += cart[i].quantity
+  }
+  return total;
 }
 
 
